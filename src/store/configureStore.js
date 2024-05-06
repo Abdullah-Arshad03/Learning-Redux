@@ -1,14 +1,10 @@
-import { createStore } from "redux";
-import reducer from "../store/bugs";
-import {devToolsEnhancer} from 'redux-devtools-extension'
+import { configureStore } from "@reduxjs/toolkit";
+import bugsReducer from '../store/bugs'
 
 
-export default function configureStore(){
-  const store = createStore(
-    reducer,
-    devToolsEnhancer({trace : true})
-  );
-
-  return store  
-
-};
+// we can simply return the object that is return from this function i-e configureStore.
+export default function () {
+  return configureStore({
+    reducer: bugsReducer,
+  });
+}
